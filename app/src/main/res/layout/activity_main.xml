@@ -2,10 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/bg"
-    android:orientation="vertical">
+  >
 
     <Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary">
@@ -71,7 +73,11 @@
 
     </Toolbar>
 
-
+<ScrollView
+    android:id="@+id/scrollView"
+      android:layout_height="0dp"
+    android:layout_weight="1"
+    android:layout_width="match_parent">
 
         <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/card_view"
@@ -85,10 +91,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/backgroundLight">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/avatar_1" />
+
 
             </LinearLayout>
 
@@ -97,23 +100,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:background="@color/backgroundLight"
-                    android:orientation="horizontal"
                     android:padding="@dimen/medium_padding"
 
                     >
 
                     <ImageView
+                        android:layout_alignParentLeft="true"
+                        android:id="@+id/avatar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@mipmap/avatar_1" />
 
                     <LinearLayout
+                        android:layout_toRightOf="@+id/avatar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
@@ -126,8 +131,8 @@
                             android:layout_marginLeft="@dimen/medium_padding"
                             android:text="@string/francisco_watson"
                             android:textAllCaps="true"
-                            android:textStyle="bold"
-                            android:textColor="@color/primaryFont" />
+                            android:textColor="@color/primaryFont"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -141,18 +146,20 @@
 
                     <ImageButton
                         android:id="@+id/more"
-                        android:layout_gravity="right"
+                        android:layout_alignParentRight="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/share_0" />
-                </LinearLayout>
+                        android:layout_centerVertical="true"
+                        android:background="@color/backgroundLight"
+                        android:src="@mipmap/ic_more_vert_black_24dp" />
+                </RelativeLayout>
 
                 <ImageView
                     android:id="@+id/image_story"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
                     android:layout_below="@+id/profile"
-                    android:scaleType="centerCrop"
                     android:src="@mipmap/image_story" />
 
 
@@ -168,6 +175,7 @@
 
                 <ImageView
 
+                    android:id="@+id/imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -179,12 +187,11 @@
 
                 <TextView
                     android:id="@+id/title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
                     android:layout_below="@+id/image_story"
                     android:padding="@dimen/medium_padding"
-                    android:text="Lorem ipsum dolor sit amet"
+                    android:text="@string/lorem_ipsum_dolor_sit_amet"
                     android:textColor="@color/postFont"
                     android:textSize="@dimen/textSizePost" />
 
@@ -193,7 +200,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/title"
-                    android:background="@color/backgroundLight"
+                    android:background="@color/cardview_light_background"
                     android:orientation="horizontal"
                     android:paddingLeft="@dimen/medium_padding"
 
@@ -242,11 +249,11 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="@dimen/medium_padding"
+                        android:layout_marginTop="@dimen/medium_padding"
                         android:text="@string/sendGift"
                         android:textAllCaps="true"
                         android:textColor="@color/colorPrimary"
-                        android:textStyle="bold"
-                        android:layout_marginTop="@dimen/medium_padding"/>
+                        android:textStyle="bold" />
 
                 </RelativeLayout>
 
@@ -254,13 +261,16 @@
             </RelativeLayout>
 
         </android.support.v7.widget.CardView>
+    </ScrollView>
 
 
-
+<LinearLayout
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:background="@color/backgroundLight"
         android:orientation="horizontal"
 
@@ -309,9 +319,9 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:background="@color/backgroundLight"
         android:orientation="horizontal"
 
@@ -366,5 +376,7 @@
             />
 
     </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
+
 
